@@ -1,0 +1,46 @@
+<!--<div class="row">
+      <div class="col-md-12 col-sm-12">
+    <form [formGroup]="loginForm" class="loginForm">
+        <div class="col-md-12 col-sm-12 login-header">
+        <h2 class="" >Login Page</h2>
+    </div>
+        <div *ngIf="isFailed" class="col-md-12 col-sm-12 login-warning">
+            <span class="warning">  
+          Warning message:</span> Username/password is not valid
+        </div>
+        <div class="col-md-12 col-sm-12 form-group login-detail-margin">
+            <div class="col-sm-2">
+                <label for="email">Email</label>
+            </div>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" formControlName="email">
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 form-group login-detail-margin">
+            <div class="col-sm-2">
+                <label for="password">Password</label>
+            </div>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" formControlName="password">
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12">
+            <button class="btn  new-register btn-size" (click)="newRegister()">New User?Register</button>
+            <button class="btn  btn-size" (click)="login()">LOGIN</button>
+        </div>
+    </form>
+    </div>
+</div>-->
+<div class="container">
+    <div class="card card-container">
+        <form [formGroup]="loginForm" class="form-signin">
+            <h3 class="login-header">Login Page</h3>
+            <input type="email" class="form-control" placeholder="Email address" formControlName="email" required>
+            <input type="password" class="form-control" placeholder="Password"  formControlName="password" required>
+            <button class="btn btn-lg btn-primary btn-block btn-signin login" type="submit" (click)="login()">Log in</button>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" (click)="newRegister()">New Register</button>
+                <span *ngIf="isFailed" class=" warning">  
+          Username/password is not valid</span>
+        </form>
+    </div>
+</div>

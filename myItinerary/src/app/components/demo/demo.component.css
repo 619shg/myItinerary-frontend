@@ -1,0 +1,6 @@
+.card {
+    margin-top: 25vh;
+}
+.card-container.card {
+    max-width: 390px;
+    }

@@ -1,0 +1,59 @@
+ <div class="col-md-12 col-sm-12 new-home-head">
+      <h2 class="mx-auto" >Dining Reservation Confirmation</h2>
+
+  </div>
+  <div class="data-part"> 
+      <div class="col-md-12 col-sm-12 header-label-div dining">
+        <h3 class="mx-auto" style="width: 1000px;">Your reservation is confirmed at Capgemini Fine Dining Restaurant.</h3>
+      </div>
+      <div  class="col-md-12 col-sm-12 ">
+        <div  class="col-md-12 col-sm-12 sub-div">
+          <div class="col-md-12 col-sm-12 details-div">
+            <div class="col-md-3 col-sm-3 item ">
+              <b class="n-label">Reservation #:&nbsp;</b> {{dining.dReservationNumber}}
+            </div>
+            <div class="col-md-3 col-sm-3 item">
+              <b class="n-label"> Dining Type:&nbsp;</b> {{dining.diningType}}
+            </div>
+            <div class="col-md-3 col-sm-3 item ">
+             <b class="n-label"> Number of guests:&nbsp;</b> {{dining.noOfPeople}}
+            </div>
+            <div class="col-md-3 col-sm-3 item ">
+              <b class="n-label"> Status:&nbsp;</b> {{dining.status}}
+            </div>
+          </div>
+          <div class="col-md-12 col-sm-12 details-div">
+            <div class="col-md-3 col-sm-3 item ">
+              <b class="n-label"> Arrival Date:&nbsp;</b> {{dining.arrivalDate}}
+            </div>
+            <div class="col-md-3 col-sm-3 item ">
+              &nbsp;
+            </div>
+            <div class="col-md-3 col-sm-3 item ">
+            &nbsp;
+            </div>
+            <div class="col-md-3 col-sm-3 item ">
+               <button class="btn btn-primary cancel-booking" [disabled]="dining.status!='booked'" (click)="cancelDining(dining.dReservationNumber)"> Cancel Booking</button>
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="modal fade" id="cancelModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content ">
+      <div class="modal-body">
+        <div class="col-md-12 col-sm-12 close-div-new">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="col-md-12 col-sm-12 body-div">
+          <p>Are you sure want to cancel booking?</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="cancelConfirm()">Yes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+</div>

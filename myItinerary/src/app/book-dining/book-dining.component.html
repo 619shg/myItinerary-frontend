@@ -1,0 +1,77 @@
+<div class="col-md-12 col-sm-12 new-home-head">
+    <h2 class="mx-auto " > Welcome to Capgemini Fine Dining Restaurant </h2>
+
+</div>
+<div class="data-part">
+  <div class="col-md-12 col-sm-12 header-label-div">
+    <h3 class="sub-header" style="width: 1000px;">Book Dining</h3>
+  </div>
+  <form class="bookDiningForm" [formGroup]="bookDiningForm" (ngSubmit)="book()">
+    <div class="col-md-12 col-sm-12 form-group login-detail-margin">
+      <div class="col-sm-2">
+        <label for="diningType"><b>Dining Type</b></label>
+      </div>
+      <div class="col-sm-3">
+        <select class="r-dropdown" formControlName="diningType" (change)=diningTypeSelect()>
+            <option default disabled value="-1">Select DiningType</option>
+  <option  value="breakfast">Breakfast</option>
+  <option value="lunch">Lunch</option>
+  <option value="snacks">Snacks</option>
+  <option value="dinner">Dinner</option>
+</select>
+      </div>
+    </div>
+    <div class="col-md-12 col-sm-12 form-group login-detail-margin checkdates" style="align-items: flex-end;">
+      <div class="col-md-4 col-sm-4">
+        <label for="arrivalDate"><b>Select A Date</b></label>
+        <div class="input-group">
+          <i class="fa fa-calendar calender-icon" aria-hidden="true"></i>
+          <input class="form-control" formControlName="arrivalDate" (click)="e.toggle()" placeholder="yyyy-mm-dd" [minDate]="minDate" name="CheckIn"
+            ngbDatepicker #e="ngbDatepicker"style="margin-top: 0;">
+          <!--<div class="input-group-append">
+            <button class="btn btn-outline-secondary"  type="button">
+                        <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+                      </button>
+          </div>-->
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4 guest-div">
+        <label class="guest-label" for="noOfPeople"><b>Number Of Guests</b></label>
+        <select class="n-dropdown" formControlName="noOfPeople">
+                   <option value ="-2"default disabled >Select Guests</option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+   <option value="4">4</option>
+</select>
+      </div>
+      <div class="col-md-4 col-sm-4 guest-div">
+        <label class="guest-label" for="time"><b>Time &nbsp; &nbsp;</b></label>
+        <!--<select class="n-dropdown" formControlName="time">
+                  <option default disabled >Select time</option>
+                    <option value="7am-11am">Breakfast (7am-11am)</option>
+                <option value="12pm-3pm">Lunch (12pm-3pm)</option>
+                 <option value="4pm-6pm">Snacks (4pm-6pm)</option>
+                <option value="7pm-11pm">Dinner (7pm-11pm)</option>
+</select>-->
+  <input class="form-control" formControlName="time" placeholder="Select time" style="margin-top: 0;" disabled>
+      </div>
+      <!--<div class="col-sm-4 guest-div" style="border-radius: 4px; border-color: gainsboro; font-size: 17px;">
+        <label class="guest-label" for="time"><b>Time</b></label>
+        <select class="n-dropdown"  formControlName="time" >
+                   <option default disabled >Select time</option>
+                    <option value="7am-11am">Breakfast (7am-11am)</option>
+                <option value="12pm-3pm">Lunch (12pm-3pm)</option>
+                 <option value="4pm-6pm">Snacks (4pm-6pm)</option>
+                <option value="7pm-11pm">Dinner (7pm-11pm)</option>
+</select>
+      </div>-->
+
+    </div>
+    <div class="col-md-12 col-sm-12 align-right" style="margin-top: 11%; text-align: center;">
+      <input style='margin-left:16px' type="reset" class="btn  btn-size" ng-click="reset()" value="Reset">
+      <input style='margin-left:16px' type="submit" class="btn btn-size" value="Book" [disabled]="!bookDiningForm.valid || bookDiningForm.controls['time'].value=='Select Time'|| bookDiningForm.controls['diningType'].value=='-1' || bookDiningForm.controls['noOfPeople'].value=='-2'">
+
+    </div>
+  </form>
+</div>
